@@ -32,7 +32,8 @@ while (wantsToPlay) {
             if (miserdm.ToLower() == "accepter") {
                 Console.WriteLine("Votre mise sera alors : " + mise + " jetons");
                 inBetLoop = false; // on sort de la boucle
-            } else if (miserdm.ToLower() == "refuser") {
+            } 
+            else if (miserdm.ToLower() == "refuser") {
                 Console.WriteLine("Combien de jetons voulez-vous mettre en jeu?");
                 token = int.Parse(Console.ReadLine());
                 Console.WriteLine("Votre mise de " + token + " jeton(s) à été acceptée, nous allons procéder au jeu. (Cliquer pour continuer)");
@@ -57,25 +58,22 @@ while (wantsToPlay) {
                     string input = Console.ReadLine(); // <- l’utilisateur tape sa réponse (string)
     
                     if (int.TryParse(input, out answergame)) {
-                        if (answergame > 150 || answergame < 1)
-                        {
+                        if (answergame > 150 || answergame < 1) {
                             Console.WriteLine("[MACHINE] Le nombre doit être entre 1 et 150 !\n");
                         }
-                        else if (answergame < game)
-                        {
+                        else if (answergame < game) {
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("[MACHINE] Plus grand !\n");
                             Console.ResetColor();
                             chances--; // on enlève une chance
                         }
-                        else if (answergame > game)
-                        {
+                        else if (answergame > game) {
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("[MACHINE] Plus petit !\n");
+                            Console.ResetColor();
                             chances--; // on enlève une chance
                         }
-                        else
-                        {
+                        else {
                             Console.WriteLine("[MACHINE] Bravo, vous avez gagné !\n");
                             Console.ReadKey();
                             Console.Clear();
@@ -86,10 +84,13 @@ while (wantsToPlay) {
 
                             string continueornot; 
                             continueornot = Console.ReadLine(); 
-                            if (continueornot == "Continuer") ; {
+                            if (continueornot == "continuer") {
+                                Console.Clear();
+                               
                                 
+
                             }
-                            if (continueornot=="Partir"); {
+                            if (continueornot=="partir") {
                                 Console.WriteLine("\nAu plaisir de vous revoir");
                                 Console.ReadKey();
                                 return;
@@ -100,8 +101,7 @@ while (wantsToPlay) {
 
                         }
                     }
-                    else
-                    {
+                    else {
                         Console.WriteLine("[MACHINE] Veuillez entrer un nombre valide.\n");
                     }
                 }
@@ -114,13 +114,15 @@ while (wantsToPlay) {
                     Console.ReadKey();
                     Console.Clear();
                     Console.WriteLine("Repartir avec le ventre vide ou continuer? (Continuer/Partir)\n");
+                    
                     string continueornot;
                     continueornot = Console.ReadLine();
-                    if (continueornot == "Continuer") {
-
+                    if (continueornot.ToLower() == "continuer") {
+                        Console.Clear();
+wantsToPlay = true;
                     }
 
-                    if (continueornot == "Partir") {
+                    if (continueornot.ToLower() == "partir") {
                         Console.WriteLine("\nAu plaisir de vous revoir");
                         Console.ReadKey();
                         return;
@@ -144,7 +146,8 @@ while (wantsToPlay) {
         Console.WriteLine("Très bien, à la prochaine!");
         Console.ReadKey();
         return;
-    } else {
+    } 
+    else {
         Console.WriteLine("Nous n'avons pas compris votre réponse veuillez réessayer\n");
         Console.WriteLine("Cliquer pour continuer.");
         Console.ReadKey();
