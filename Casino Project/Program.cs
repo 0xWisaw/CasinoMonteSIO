@@ -63,12 +63,15 @@ while (wantsToPlay) {
                         }
                         else if (answergame < game)
                         {
-                            Console.WriteLine("[MACHINE] Le nombre recherché est plus grand !\n");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("[MACHINE] Plus grand !\n");
+                            Console.ResetColor();
                             chances--; // on enlève une chance
                         }
                         else if (answergame > game)
                         {
-                            Console.WriteLine("[MACHINE] Le nombre recherché est plus petit !\n");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("[MACHINE] Plus petit !\n");
                             chances--; // on enlève une chance
                         }
                         else
@@ -87,10 +90,12 @@ while (wantsToPlay) {
                                 
                             }
                             if (continueornot=="Partir"); {
-                                
+                                Console.WriteLine("\nAu plaisir de vous revoir");
+                                Console.ReadKey();
+                                return;
                             }
-
-
+                            
+                        
 
 
                         }
@@ -102,12 +107,26 @@ while (wantsToPlay) {
                 }
 
 // Si on sort de la boucle et que le joueur n’a plus de chances
-                if (answergame != game)
-                {
+                if (answergame != game) {
                     Console.WriteLine("[MACHINE] Perdu ! Le nombre était : " + game);
                     Console.WriteLine("Votre mise de " + token + " à donc disparu. \n");
                     Console.WriteLine(token + " => " + 0);
-                }
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine("Repartir avec le ventre vide ou continuer? (Continuer/Partir)\n");
+                    string continueornot;
+                    continueornot = Console.ReadLine();
+                    if (continueornot == "Continuer") {
+
+                    }
+
+                    if (continueornot == "Partir") {
+                        Console.WriteLine("\nAu plaisir de vous revoir");
+                        Console.ReadKey();
+                        return;
+                    }
+
+            }
                 
                 
                     
